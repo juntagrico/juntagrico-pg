@@ -4,7 +4,7 @@ from texttable import Texttable
 def pretty_print(cursor):
     if cursor.description is not None:
         columns = [col[0] for col in cursor.description]
-        table = Texttable()
+        table = Texttable(max_width=0)
         table.set_cols_align(['l' for x in columns])
         table.set_cols_valign(['m' for x in columns])
         rows = [columns]
