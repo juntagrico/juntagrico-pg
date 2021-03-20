@@ -37,7 +37,7 @@ jobs:
     - name: run tests
       run: |
         django-admin.py makemigrations --noinput
-        coverage run -m django-admin test
+        coverage run -m manage test
     - name: publish code coverage
       if: ${{ env.CC_TEST_REPORTER_ID != null && github.event_name == 'push'}}
       run: |
