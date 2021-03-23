@@ -1,5 +1,5 @@
 [run]
 include =
-    juntagrico_billing/*
+    juntagrico_pg/*
 omit =
-    juntagrico_billing/migrations/*
+    juntagrico_pg/migrations/*
