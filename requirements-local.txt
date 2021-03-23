@@ -1,3 +1,5 @@
+-r requirements.txt
+coverage
+flake8
 git+http://github.com/juntagrico/juntagrico.git
-pgspecial==1.11.7
-texttable==1.6.2
+

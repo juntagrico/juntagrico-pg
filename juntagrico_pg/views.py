@@ -1,4 +1,4 @@
-from django.contrib.auth.decorators import login_required, permission_required
+from django.contrib.auth.decorators import permission_required
 from django.db import connection
 from django.http import HttpResponse, Http404
 from django.shortcuts import render
