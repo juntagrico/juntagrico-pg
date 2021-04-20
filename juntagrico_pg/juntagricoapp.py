@@ -2,6 +2,7 @@ from juntagrico.util import addons
 
 import juntagrico_pg
 
+
 def show_admin_menu(user):
     return user.has_perm('juntagrico_pg.can_sql')
 
