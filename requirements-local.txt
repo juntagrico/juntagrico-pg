@@ -1,1 +1,5 @@
+-r requirements.txt
+coverage
+flake8
 git+http://github.com/juntagrico/juntagrico.git
+
