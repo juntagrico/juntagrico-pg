@@ -2,7 +2,6 @@ from django.contrib.auth.decorators import permission_required
 from django.db import connection
 from django.http import HttpResponse, Http404
 from django.shortcuts import render
-from juntagrico.views import get_menu_dict
 from pgspecial.main import PGSpecial
 
 from juntagrico_pg.util.output import pretty_print
@@ -10,12 +9,7 @@ from juntagrico_pg.util.output import pretty_print
 
 @permission_required('juntagrico_pg.can_sql')
 def home(request):
-
-    renderdict = get_menu_dict(request)
-    renderdict .update({
-        'menu': {'jpg': 'active'},
-    })
-    return render(request, "jpg/home.html", renderdict)
+    return render(request, "jpg/home.html", {})
 
 
 @permission_required('juntagrico_pg.can_sql')
