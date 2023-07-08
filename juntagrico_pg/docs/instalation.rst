@@ -19,3 +19,10 @@ You have to add the app to your installed apps in your Django settings
         'juntagrico_pg',
     ]
     
+URLs
+----
+
+Add this line in your `urls.py`:
+
+.. code-block:: python
+    path('', include('juntagrico_pg.urls'))
