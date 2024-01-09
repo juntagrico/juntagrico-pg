@@ -11,7 +11,6 @@
 [![image](https://img.shields.io/pypi/dm/juntagrico-pg.svg)](https://pypi.python.org/pypi/juntagrico-pg/)
 [![image](https://img.shields.io/github/last-commit/juntagrico/juntagrico-pg.svg)](https://github.com/juntagrico/juntagrico-pg)
 [![image](https://img.shields.io/github/commit-activity/y/juntagrico/juntagrico-pg)](https://github.com/juntagrico/juntagrico-pg)
-[![Requirements Status](https://requires.io/github/juntagrico/juntagrico-pg/requirements.svg?branch=main)](https://requires.io/github/juntagrico/juntagrico-pg/requirements/?branch=main)
 
 postgres db editor for juntagrico.
 

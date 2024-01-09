@@ -1,13 +1,11 @@
 """
 test URL Configuration for juntagrico_pg development
 """
-from django.conf.urls import include, url
+from django.urls import include, path
 from django.contrib import admin
-import juntagrico
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
-    url(r'^', include('juntagrico.urls')),
-    url(r'^', include('juntagrico_pg.urls')),
-    url(r'^$', juntagrico.views.home),
+    path(r'admin/', admin.site.urls),
+    path(r'', include('juntagrico.urls')),
+    path(r'', include('juntagrico_pg.urls')),
 ]
