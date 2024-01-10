@@ -17,4 +17,29 @@ postgres db editor for juntagrico.
 This is an extension for juntagrico. You can find more information about juntagrico here
 (https://github.com/juntagrico/juntagrico)
 
-For more information information about how to install this app hop over to the doc section of the repo.
+# Installation
+
+Install juntagrico-pg via `pip`
+
+    $ pip install juntagrico-pg
+
+or add it in your projects `requirements.txt`
+
+In `settings.py` add `'juntagrico_pg',` **before** juntagrico.
+
+```python
+INSTALLED_APPS = [
+    ...
+    'juntagrico_pg',
+    'juntagrico',
+]
+```
+
+In your `urls.py` you also need to extend the pattern:
+
+```python
+urlpatterns = [
+    ...
+    path('', include('juntagrico_pg.urls')),
+]
+```
