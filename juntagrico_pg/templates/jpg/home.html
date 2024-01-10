@@ -29,7 +29,7 @@
             $('.btn').on('click', function() {
                 var textarea = $('#textarea_id');
                 textarea.val(textarea.val() + '\n\n' + $("#sql").val());
-                $.post( "/jpg/sql",
+                $.post( "{% url "jpg:sql" %}",
                     $("#sql-form").serialize(),
                     function( data ) {
                     var textarea = $('#textarea_id');

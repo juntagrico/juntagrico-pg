@@ -15,9 +15,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'juntagrico_pg',
     'juntagrico',
     'import_export',
-    'juntagrico_pg',
 ]
 
 DATABASES = {
