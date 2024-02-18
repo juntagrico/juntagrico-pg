@@ -1,5 +1,5 @@
-{% extends "menu/admin_menu.html" %}
-{% block extend_admin_menu %}
+{% extends "juntagrico/menu/admin.html" %}
+{% block extend %}
     {% if perms.juntagrico_pg.can_sql %}
         <li class="nav-item">
             <a class="nav-link" href="{% url 'jpg:home' %}">juntagrico-pg</a>
