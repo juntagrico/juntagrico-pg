@@ -12,9 +12,9 @@ readme = "README.md"
 license = { file = "LICENSE" }
 requires-python = ">=3.8"
 dependencies = [
-    "juntagrico>=1.6.0rc4",
-    "pgspecial>=1.12.1",
-    "texttable>=1.6.3"
+    "juntagrico>=1.6.0",
+    "pgspecial>=1.12.1,<2.0",
+    "texttable>=1.6.3,<2.0"
 ]
 classifiers = [
     'Development Status :: 5 - Production/Stable',
