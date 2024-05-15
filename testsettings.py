@@ -15,18 +15,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
-    'juntagrico',
     'juntagrico_pg',
+    'juntagrico',
+    'import_export',
 ]
 
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get('JUNTAGRICO_DATABASE_ENGINE','django.db.backends.sqlite3'),
-        'NAME': os.environ.get('JUNTAGRICO_DATABASE_NAME','myrandebandi.db'),
-        'USER': os.environ.get('JUNTAGRICO_DATABASE_USER'), #''junatagrico', # The following settings are not used with sqlite3:
-        'PASSWORD': os.environ.get('JUNTAGRICO_DATABASE_PASSWORD'), #''junatagrico',
-        'HOST': os.environ.get('JUNTAGRICO_DATABASE_HOST'), #'localhost', # Empty for localhost through domain sockets or '127.0.0.1' for localhost through TCP.
-        'PORT': os.environ.get('JUNTAGRICO_DATABASE_PORT', False), #''', # Set to empty string for default.
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'yourdatabasename.db',
     }
 }
 
@@ -53,8 +50,8 @@ EMAIL_PORT = os.environ.get('JUNTAGRICO_EMAIL_PORT', 2525 )
 EMAIL_USE_TLS = os.environ.get('JUNTAGRICO_EMAIL_TLS', False)
 
 
-
 WHITELIST_EMAILS = []
+
 
 def whitelist_email_from_env(var_env_name):
     email = os.environ.get(var_env_name)
@@ -82,7 +79,7 @@ USE_I18N = True
 # calendars according to the current locale.
 USE_L10N = True
 
-DATE_INPUT_FORMATS =['%d.%m.%Y',]
+DATE_INPUT_FORMATS = ['%d.%m.%Y',]
 
 # If you set this to False, Django will not use timezone-aware datetimes.
 USE_TZ = True
@@ -90,40 +87,23 @@ USE_TZ = True
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
-                # Insert your TEMPLATE_CONTEXT_PROCESSORS here or use this
-                # list if you haven't customized them:
                 'django.contrib.auth.context_processors.auth',
                 'django.template.context_processors.debug',
                 'django.template.context_processors.i18n',
                 'django.template.context_processors.media',
+                'django.template.context_processors.request',
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
             ],
-            'loaders': [
-                'django.template.loaders.filesystem.Loader',
-                'django.template.loaders.app_directories.Loader'
-            ],
-            'debug' : True
+            'debug': True
         },
     },
 ]
 
-LOGIN_REDIRECT_URL = "/my/home"
+LOGIN_REDIRECT_URL = "/"
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
-
-
-GOOGLE_API_KEY = 'AIzaSyCcii4Z71qyky54kEQtRhFbB_z-2zbSU28'
-
-BILLING = True
-
-CACHES = {
-        'default': {
-            'BACKEND': 'django.core.cache.backends.db.DatabaseCache',
-            'LOCATION': 'juntagrico_app_cache_table',
-            'TIMEOUT': None,
-        }
-    }

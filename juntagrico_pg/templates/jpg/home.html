@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load juntagrico.config %}
 {% block page_title %}
     <h3>juntagrico-pg</h3>
@@ -11,25 +12,25 @@
             </textarea>
         </div>
     </div>
-    <div class="row mt-3">
-        <div class="col-md-9">
-            <form id="sql-form">
-                {% csrf_token %}
+    <form id="sql-form">
+        <div class="row mt-3">
+            {% csrf_token %}
+            <div class="col-md-9">
                 <input class="form-control" id="sql" name="sql">
-             </form>
+            </div>
+            <div class="col-md-3">
+                <input type="submit" class="btn btn-success" id="execute" value="{% trans "Ausführen" %}">
+            </div>
         </div>
-        <div class="col-md-3">
-            <button type="button" class="btn btn-success" id="execute">Execute</button>
-        </div>
-    </div>
+    </form>
 {% endblock %}
 {% block scripts %}
     <script>
         $(document).ready(function(){
-            $('.btn').on('click', function() {
+            $('#sql-form').on('submit', function() {
                 var textarea = $('#textarea_id');
                 textarea.val(textarea.val() + '\n\n' + $("#sql").val());
-                $.post( "/jpg/sql",
+                $.post( "{% url "jpg:sql" %}",
                     $("#sql-form").serialize(),
                     function( data ) {
                     var textarea = $('#textarea_id');
@@ -37,6 +38,7 @@
                     textarea.scrollTop(textarea[0].scrollHeight);
                     $("#sql").val("")
                 });
+                return false
             });
         });
     </script>

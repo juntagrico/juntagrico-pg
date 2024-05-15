@@ -11,11 +11,35 @@
 [![image](https://img.shields.io/pypi/dm/juntagrico-pg.svg)](https://pypi.python.org/pypi/juntagrico-pg/)
 [![image](https://img.shields.io/github/last-commit/juntagrico/juntagrico-pg.svg)](https://github.com/juntagrico/juntagrico-pg)
 [![image](https://img.shields.io/github/commit-activity/y/juntagrico/juntagrico-pg)](https://github.com/juntagrico/juntagrico-pg)
-[![Requirements Status](https://requires.io/github/juntagrico/juntagrico-pg/requirements.svg?branch=main)](https://requires.io/github/juntagrico/juntagrico-pg/requirements/?branch=main)
 
 postgres db editor for juntagrico.
 
 This is an extension for juntagrico. You can find more information about juntagrico here
 (https://github.com/juntagrico/juntagrico)
 
-For more information information about how to install this app hop over to the doc section of the repo.
+# Installation
+
+Install juntagrico-pg via `pip`
+
+    $ pip install juntagrico-pg
+
+or add it in your projects `requirements.txt`
+
+In `settings.py` add `'juntagrico_pg',` **before** juntagrico.
+
+```python
+INSTALLED_APPS = [
+    ...
+    'juntagrico_pg',
+    'juntagrico',
+]
+```
+
+In your `urls.py` you also need to extend the pattern:
+
+```python
+urlpatterns = [
+    ...
+    path('', include('juntagrico_pg.urls')),
+]
+```

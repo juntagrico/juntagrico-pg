@@ -5,8 +5,8 @@ def pretty_print(cursor):
     if cursor.description is not None:
         columns = [col[0] for col in cursor.description]
         table = Texttable(max_width=0)
-        table.set_cols_align(['l' for x in columns])
-        table.set_cols_valign(['m' for x in columns])
+        table.set_cols_align(['l'] * len(columns))
+        table.set_cols_valign(['m'] * len(columns))
         rows = [columns]
         for row in cursor.fetchall():
             parsed_row = [row[x] for x in range(0, len(columns))]

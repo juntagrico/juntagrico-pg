@@ -9,7 +9,7 @@ from juntagrico_pg.util.output import pretty_print
 
 @permission_required('juntagrico_pg.can_sql')
 def home(request):
-    return render(request, "jpg/home.html", {})
+    return render(request, "jpg/home.html")
 
 
 @permission_required('juntagrico_pg.can_sql')
