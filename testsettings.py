@@ -98,6 +98,7 @@ TEMPLATES = [
                 'django.template.context_processors.static',
                 'django.template.context_processors.tz',
                 'django.contrib.messages.context_processors.messages',
+                'juntagrico.context_processors.vocabulary',
             ],
             'debug': True
         },
@@ -107,3 +108,5 @@ TEMPLATES = [
 LOGIN_REDIRECT_URL = "/"
 
 SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
+
+ENABLE_SHARES = False
