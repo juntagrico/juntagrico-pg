@@ -1,7 +1,8 @@
 from django.contrib.auth.decorators import permission_required
 from django.db import connection
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse
 from django.shortcuts import render
+from django.views.decorators.http import require_POST
 from pgspecial.main import PGSpecial
 
 from juntagrico_pg.util.output import pretty_print
@@ -13,9 +14,8 @@ def home(request):
 
 
 @permission_required('juntagrico_pg.can_sql')
+@require_POST
 def execute_sql(request):
-    if request.method != 'POST':
-        raise Http404
     sql = request.POST.get('sql')
     try:
         with connection.cursor() as cur:
