@@ -7,7 +7,8 @@ from juntagrico.tests import JuntagricoTestCase
 class PGTests(JuntagricoTestCase):
     @classmethod
     def setUpTestData(cls):
-        super().setUpTestData()
+        cls.load_members()
+        cls.default_member = cls.member
         cls.member.user.user_permissions.add(Permission.objects.get(codename='can_sql'))
         cls.member.user.save()
 
@@ -19,7 +20,7 @@ class PGTests(JuntagricoTestCase):
         self.assertGet(reverse('jpg:home'))
 
     def test_sql_get(self):
-        self.assertGet(reverse('jpg:sql'), 404)
+        self.assertGet(reverse('jpg:sql'), 405)
 
     def test_sql_post(self):
         response = self.assertPost(reverse('jpg:sql'), {'sql': 'SELECT 1'})
