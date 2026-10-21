@@ -71,7 +71,7 @@ LOGGING = {
     ...
     'loggers': {
         'juntagrico_pg': {
-            'handlers': ['file'],
+            'handlers': ['console'],
             'level': 'INFO',
         },
     },
